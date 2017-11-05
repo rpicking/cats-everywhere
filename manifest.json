@@ -1,0 +1,36 @@
+{
+    "manifest_version": 2,
+
+    "name": "Cat Pictures Everywhere",
+    "description": "Replaces all images with cat pictures on websites, and shows them in popup.",
+    "version": "1.0",
+
+    "icons": {
+        "16": "img/icon_16.png",
+        "512": "img/icon.png"
+    },
+
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_title": "Cat Pictures"
+    },
+
+    "background": {
+        "scripts": [
+            "js/background.js"
+        ]
+    },
+
+    "content_scripts": [
+        {
+            "matches": [ "<all_urls>" ],
+            "js": [ "js/content.js" ],
+            "run_at": "document_start"
+        }
+    ],
+
+    "permissions": [
+        "activeTab",
+        "<all_urls>"
+    ]
+}
